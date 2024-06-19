@@ -1,0 +1,469 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3726702241833357071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b508d839a4d744e3aa3e5280adc8b91b, type: 3}
+  m_Name: Zone Transition
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 24, y: -200}
+  ports:
+    keys:
+    - enter
+    - choices
+    - choices 0
+    - choices 1
+    values:
+    - _fieldName: enter
+      _node: {fileID: -3726702241833357071}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: choices 0
+        node: {fileID: 7527298136810579443}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: choices
+      _node: {fileID: -3726702241833357071}
+      _typeQualifiedName: System.Collections.Generic.List`1[[Choice, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: choices 0
+      _node: {fileID: -3726702241833357071}
+      _typeQualifiedName: Choice, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: choices 1
+      _node: {fileID: -3726702241833357071}
+      _typeQualifiedName: Choice, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 6962644474109552777}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+  nodeIdentifier: To Area2
+  enter: 
+  storyText: You are about to enter a new location. Continue?
+  choices:
+  - choiceText: Yes
+    requirements: []
+    changes: []
+  - choiceText: No
+    requirements: []
+    changes: []
+  nextGraph: {fileID: 11400000, guid: 9a3f5e5ab974c422aa84900122773191, type: 2}
+  nextGraphNodeIdentifier: Begin
+--- !u!114 &-2264369064959622911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d105333cf3a4ef5aeb28dcec03ce9e, type: 3}
+  m_Name: Story
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1048, y: -200}
+  ports:
+    keys:
+    - enter
+    - choices
+    - choices 0
+    values:
+    - _fieldName: enter
+      _node: {fileID: -2264369064959622911}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: choices
+      _node: {fileID: -2264369064959622911}
+      _typeQualifiedName: System.Collections.Generic.List`1[[Choice, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: choices 0
+      _node: {fileID: -2264369064959622911}
+      _typeQualifiedName: Choice, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 6962644474109552777}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+  nodeIdentifier: Entrance
+  enter: Start
+  storyText: You wake up with your head pounding. Where are you? ...Who are you?
+    You look around you.
+  choices:
+  - choiceText: Continue
+    requirements: []
+    changes: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f45737b876d7745e68aec6f6cb1e36c6, type: 3}
+  m_Name: Area1
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -2264369064959622911}
+  - {fileID: 6962644474109552777}
+  - {fileID: 4240053575744777493}
+  - {fileID: -3726702241833357071}
+  - {fileID: 4421787781211184177}
+  - {fileID: 7527298136810579443}
+--- !u!114 &4240053575744777493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 265b1a83daedc4963a9420c5c7106bb5, type: 3}
+  m_Name: Interaction
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -648, y: 136}
+  ports:
+    keys:
+    - enter
+    - choices
+    - choices 0
+    values:
+    - _fieldName: enter
+      _node: {fileID: 4240053575744777493}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: choices 1
+        node: {fileID: 6962644474109552777}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: choices
+      _node: {fileID: 4240053575744777493}
+      _typeQualifiedName: System.Collections.Generic.List`1[[Choice, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: choices 0
+      _node: {fileID: 4240053575744777493}
+      _typeQualifiedName: Choice, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 6962644474109552777}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+  nodeIdentifier: Bloodstain
+  enter: 
+  storyText: 'As you apprach the stain, you can see it is clearly blood. Next to
+    the stain there is a word scrawled with the dark fluid: "Kord." The word resonates
+    in your mind.'
+  choices:
+  - choiceText: Back
+    requirements: []
+    changes:
+    - requirementName: Know Kord
+      isMet: 1
+--- !u!114 &4421787781211184177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d105333cf3a4ef5aeb28dcec03ce9e, type: 3}
+  m_Name: Story
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -648, y: -536}
+  ports:
+    keys:
+    - enter
+    - choices
+    - choices 0
+    values:
+    - _fieldName: enter
+      _node: {fileID: 4421787781211184177}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: choices 0
+        node: {fileID: 6962644474109552777}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: choices
+      _node: {fileID: 4421787781211184177}
+      _typeQualifiedName: System.Collections.Generic.List`1[[Choice, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: choices 0
+      _node: {fileID: 4421787781211184177}
+      _typeQualifiedName: Choice, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 6962644474109552777}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+  nodeIdentifier: Locked Door
+  enter: 
+  storyText: The door is locked.
+  choices:
+  - choiceText: Return
+    requirements: []
+    changes: []
+--- !u!114 &6962644474109552777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc60456e7f0ad414fb0f03016c99c7fe, type: 3}
+  m_Name: Location
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -648, y: -232}
+  ports:
+    keys:
+    - enter
+    - choices
+    - choices 0
+    - choices 1
+    - choices 2
+    values:
+    - _fieldName: enter
+      _node: {fileID: 6962644474109552777}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: choices 0
+        node: {fileID: 4240053575744777493}
+        reroutePoints: []
+      - fieldName: choices 1
+        node: {fileID: -3726702241833357071}
+        reroutePoints: []
+      - fieldName: choices 0
+        node: {fileID: 4421787781211184177}
+        reroutePoints: []
+      - fieldName: choices 1
+        node: {fileID: 7527298136810579443}
+        reroutePoints: []
+      - fieldName: choices 0
+        node: {fileID: -2264369064959622911}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: choices
+      _node: {fileID: 6962644474109552777}
+      _typeQualifiedName: System.Collections.Generic.List`1[[Choice, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: choices 0
+      _node: {fileID: 6962644474109552777}
+      _typeQualifiedName: Choice, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 4421787781211184177}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: choices 1
+      _node: {fileID: 6962644474109552777}
+      _typeQualifiedName: Choice, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 4240053575744777493}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: choices 2
+      _node: {fileID: 6962644474109552777}
+      _typeQualifiedName: Choice, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 7527298136810579443}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+  nodeIdentifier: Concrete Room
+  enter: 
+  storyText: 'You are in a small, empty room. The walls are bare concrete, slightly
+    cracked in places. In one corner there is a dark stain of some kind on the concrete
+    floor. To the north there is a locked door. On the door there is a question:
+    "Who owns the Night?'
+  choices:
+  - choiceText: Open Door
+    requirements: []
+    changes: []
+  - choiceText: Examine Stain
+    requirements: []
+    changes: []
+  - choiceText: Utter the word "Kord"
+    requirements:
+    - requirementName: Know Kord
+      isMet: 0
+    changes: []
+--- !u!114 &7527298136810579443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d105333cf3a4ef5aeb28dcec03ce9e, type: 3}
+  m_Name: Story
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -328, y: -184}
+  ports:
+    keys:
+    - enter
+    - choices
+    - choices 0
+    - choices 1
+    values:
+    - _fieldName: enter
+      _node: {fileID: 7527298136810579443}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: choices 2
+        node: {fileID: 6962644474109552777}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: choices
+      _node: {fileID: 7527298136810579443}
+      _typeQualifiedName: System.Collections.Generic.List`1[[Choice, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: choices 0
+      _node: {fileID: 7527298136810579443}
+      _typeQualifiedName: Choice, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: -3726702241833357071}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: choices 1
+      _node: {fileID: 7527298136810579443}
+      _typeQualifiedName: Choice, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 6962644474109552777}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+  nodeIdentifier: unlocked door
+  enter: 
+  storyText: Tho door unlocks. Head through?
+  choices:
+  - choiceText: Yes
+    requirements: []
+    changes: []
+  - choiceText: No
+    requirements: []
+    changes: []
